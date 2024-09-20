@@ -21,8 +21,14 @@ package org.knit.lab1;
 public class Task1 {
 
     public void execute() {
-        /*
-         * Ваше решение
-         */
+
+        String line = "1";
+        for(int i = 1; i <= 100; i++){
+            if (i % 10 == 0) {
+                System.out.println(i);
+            } else {
+                System.out.print(i + ", ");
+            }
+        }
     }
 }
