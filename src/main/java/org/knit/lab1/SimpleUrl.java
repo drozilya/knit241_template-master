@@ -2,15 +2,15 @@ package org.knit.lab1;
 
 public class SimpleUrl {
 
-    private String protocol;
-    private String address;
-    private String domainZone;
-    private String siteName;
-    private String webpageName;
-    private String webPageExtention;
-    private String intParam;
-    private String doubleParam;
-    private String textParameter;
+    protected String protocol;
+    protected String address;
+    protected String domainZone;
+    protected String siteName;
+    protected String webpageName;
+    protected String webPageExtention;
+    protected String intParam;
+    protected String doubleParam;
+    protected String textParameter;
 
 
     public String getProtocol() {
