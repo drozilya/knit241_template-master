@@ -27,32 +27,47 @@ public abstract class Player {
             if (this.health > maxHealth) {
                 this.health = maxHealth;
             }
-            System.out.println(name + "увеличил ХП до " + this.health);
+            System.out.println(name + " увеличил ХП до " + value);
         } else {
             ExCatcher("Нельзя вылечить игрока, так как он мертв!");
         }
     }
 
     public void decreaseHealth(int value) {
-        if (def > 0) {
-            def -= value;
-            if (def < 0) {
-                health += def;
-                def = 0;
+        if (health < 0) {
+            System.out.println("Этот класс уже умер!");
+        } else {
+            if (def > 0) {
+                def -= value;
+                if (def < 0) {
+                    health += def;
+                    def = 0;
+                }
+            } else {
+                health -= value;
+            }
+            if (health < 0) {
+                isAlive = false;
+                System.out.println(name + " помер");
+            } else {
+                System.out.println(name + " атакован на " + value + " ед.");
             }
         }
-        if (health < 0) {
-            isAlive = false;
-            System.out.println(name + "помер");
+    }
+
+    public void increaseShield(int value) {
+        if (isAlive) {
+            this.def += value;
+            System.out.println(name + " получил " + value + " ед. защиты");
         } else {
-            System.out.println(name + " атакован на " + value + " ед.");
+            ExCatcher("Нельзя поставить щит игроку, так как он мертв!");
         }
     }
 
     public void move(int x, int y) {
         this.posX = x;
         this.posY = y;
-        System.out.printf(name + "переместился на позицию (%d, %d)", x, y);
+        System.out.printf("\n" + name + " переместился на позицию (%d, %d)", x, y);
     }
 
     public void ExCatcher(String ex) {

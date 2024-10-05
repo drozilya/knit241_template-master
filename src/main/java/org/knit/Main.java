@@ -22,24 +22,30 @@ public class Main {
         task2.execute(); */
 
         // Задача 3
-        /* Scanner scanner = new Scanner(System.in);
+        /*
+        Scanner scanner = new Scanner(System.in);
         String state = "";
 
         while (!Objects.equals(state, "exit")) {
-            System.out.print("Введите a: ");
-            double a = Double.parseDouble(scanner.nextLine());
-            System.out.print("Введите (+, -, *, /): ");
-            String operand = scanner.nextLine();
-            System.out.print("Введите b: ");
-            double b = Double.parseDouble(scanner.nextLine());
+            try {
+                System.out.print("Введите a: ");
+                double a = Double.parseDouble(scanner.nextLine());
+                System.out.print("Введите (+, -, *, /): ");
+                String operand = scanner.nextLine();
+                System.out.print("Введите b: ");
+                double b = Double.parseDouble(scanner.nextLine());
 
-            Calculator calc = new Calculator();
-            System.out.println("Результат: " + calc.inputer(a, operand, b));
+                Calculator calc = new Calculator();
+                System.out.println("Результат: " + calc.inputer(a, operand, b));
 
-            System.out.print(">> ");
-            state = scanner.nextLine();
-        } */
-
+                System.out.print(">> ");
+                state = scanner.nextLine();
+            } catch (NumberFormatException e) {
+                System.out.println(e + " Неверный формат!");
+            }
+        }
+        */
+        /*
         WarriorGuard warriorGuard = new WarriorGuard("Щитовик");
         Mage mage = new Mage("Маг");
         Healer healer = new Healer("Хиллер");
@@ -58,17 +64,93 @@ public class Main {
                     if (Objects.equals(commandsp[1], "Маг")) {
                         warrior.attack(mage);
                         System.out.println(mage);
-                    } else if(Objects.equals(commandsp[1], "Хиллер")) {
+                    } else if (Objects.equals(commandsp[1], "Хиллер")) {
                         warrior.attack(healer);
                         System.out.println(healer);
-                    } else if(Objects.equals(commandsp[1], "Щитовик")) {
+                    } else if (Objects.equals(commandsp[1], "Щитовик")) {
                         warrior.attack(warriorGuard);
                         System.out.println(warriorGuard);
                     } else {
                         System.out.println("Такого класса нет!");
                     }
+                } else if (Objects.equals(commandsp[0], "move")) {
+                    warrior.move(Integer.parseInt(commandsp[1]), Integer.parseInt(commandsp[2]));
+                }
+                queue = 1;
+            } else if (queue == 1) {
+                System.out.println("Доступные команды: cast [name], move [x, y]");
+                System.out.print("Маг>> ");
+                command = scanner.nextLine();
+                String[] commandsp = command.split(" ");
+                if (Objects.equals(commandsp[0], "cast")) {
+                    if (Objects.equals(commandsp[1], "Воин")) {
+                        mage.castSpell(warrior);
+                        System.out.println(warrior);
+                    } else if (Objects.equals(commandsp[1], "Хиллер")) {
+                        mage.castSpell(healer);
+                        System.out.println(healer);
+                    } else if (Objects.equals(commandsp[1], "Щитовик")) {
+                        mage.castSpell(warriorGuard);
+                        System.out.println(warriorGuard);
+                    } else {
+                        System.out.println("Такого класса нет!");
+                    }
+                } else if (Objects.equals(commandsp[0], "move")) {
+                    warrior.move(Integer.parseInt(commandsp[1]), Integer.parseInt(commandsp[2]));
+                }
+                queue = 2;
+            } else if (queue == 2) {
+                System.out.println("Доступные команды: heal [name], move [x, y]");
+                System.out.print("Хиллер>> ");
+                command = scanner.nextLine();
+                String[] commandsp = command.split(" ");
+                if (Objects.equals(commandsp[0], "heal")) {
+                    if (Objects.equals(commandsp[1], "Воин")) {
+                        healer.heal(warrior);
+                        System.out.println(warrior);
+                    } else if (Objects.equals(commandsp[1], "Хиллер")) {
+                        healer.heal(healer);
+                        System.out.println(healer);
+                    } else if (Objects.equals(commandsp[1], "Щитовик")) {
+                        healer.heal(warriorGuard);
+                        System.out.println(warriorGuard);
+                    } else if (Objects.equals(commandsp[1], "Маг")) {
+                        healer.heal(mage);
+                        System.out.println(mage);
+                    } else {
+                        System.out.println("Такого класса нет!");
+                    }
+                } else if (Objects.equals(commandsp[0], "move")) {
+                    warrior.move(Integer.parseInt(commandsp[1]), Integer.parseInt(commandsp[2]));
+                }
+                queue = 3;
+            } else if (queue == 3) {
+                System.out.println("Доступные команды: attack [name], shield [name], move [x, y]");
+                System.out.print("Щитовик>> ");
+                command = scanner.nextLine();
+                String[] commandsp = command.split(" ");
+                if (Objects.equals(commandsp[0], "shield")) {
+                    if (Objects.equals(commandsp[1], "Воин")) {
+                        warriorGuard.deployShield(warrior);
+                        System.out.println(warrior);
+                    } else if (Objects.equals(commandsp[1], "Хиллер")) {
+                        warriorGuard.deployShield(healer);
+                        System.out.println(healer);
+                    } else if (Objects.equals(commandsp[1], "Щитовик")) {
+                        warriorGuard.deployShield(warriorGuard);
+                        System.out.println(warriorGuard);
+                    } else if (Objects.equals(commandsp[1], "Маг")) {
+                        warriorGuard.deployShield(mage);
+                        System.out.println(mage);
+                    } else {
+                        System.out.println("Такого класса нет!");
+                    }
+                } else if (Objects.equals(commandsp[0], "move")) {
+                    warrior.move(Integer.parseInt(commandsp[1]), Integer.parseInt(commandsp[2]));
+                }
+                queue = 0;
                 }
             }
-        }
+            */
     }
 }
