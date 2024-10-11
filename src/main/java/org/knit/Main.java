@@ -50,8 +50,6 @@ public class Main {
         }
         */
 
-        /* Container container = new Container(1000); */
-
         /*
         WarriorGuard warriorGuard = new WarriorGuard("Щитовик");
         Mage mage = new Mage("Маг");
@@ -159,7 +157,7 @@ public class Main {
                 }
             }
          */
-        /* Объемы фигур */
+        /* Объемы фигур
 
         Container container = new Container(1000);
 
@@ -168,5 +166,33 @@ public class Main {
 
         container.add(sphere);
         container.add(cube);
+         */
+
+        /* Массивы и строки */
+
+        int c = 0;
+        Scanner scanner = new Scanner(new File("dictionary.txt"));
+        while (scanner.hasNext()) {
+            String word = scanner.nextLine();
+            c++;
+        }
+        scanner.close();
+
+        Scanner scanner2 = new Scanner(new File("dictionary.txt"));
+        int ind = 0;
+        String[] words = new String[c];
+
+        while (scanner2.hasNext()) {
+            words[ind++] = scanner2.nextLine().toLowerCase();
+        }
+        scanner2.close();
+
+        char[] alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя".toCharArray();
+        DictionaryStatistic dictStat = new DictionaryStatistic(words, alphabet);
+        System.out.println(dictStat);
+
+        System.out.println("Случайное слово из словаря: " + dictStat.getRandomWord());
+
+        dictStat.printSymbolsStat();
     }
 }
