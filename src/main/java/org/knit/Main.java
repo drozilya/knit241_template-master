@@ -3,17 +3,21 @@ package org.knit;
 import org.knit.lab1.SimpleUrl;
 import org.knit.lab1.Task1;
 import org.knit.lab1.Task2;
-import org.knit.lab2.Calculator;
+import org.knit.lab2.*;
 import org.knit.lab3.Healer;
 import org.knit.lab3.Mage;
 import org.knit.lab3.Warrior;
 import org.knit.lab3.WarriorGuard;
+import org.knit.lab4.DictionaryStatistic;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         // Задачи 1 и 2
         /* Task1 task1 = new Task1();
         task1.execute();
@@ -45,6 +49,9 @@ public class Main {
             }
         }
         */
+
+        /* Container container = new Container(1000); */
+
         /*
         WarriorGuard warriorGuard = new WarriorGuard("Щитовик");
         Mage mage = new Mage("Маг");
@@ -151,6 +158,15 @@ public class Main {
                 queue = 0;
                 }
             }
-            */
+         */
+        /* Объемы фигур */
+
+        Container container = new Container(1000);
+
+        Shape sphere = new Sphere(5);
+        Shape cube = new Cube(3);
+
+        container.add(sphere);
+        container.add(cube);
     }
 }
