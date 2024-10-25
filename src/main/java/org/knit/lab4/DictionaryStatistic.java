@@ -6,10 +6,10 @@ public class DictionaryStatistic {
     private String[] words;
     private int dictionarySize; // Количество слов
     private int palindrome; // Количество слов палиндромов
-    private int maxWordLength;         // Максимальная длина слова в словаре
-    private int minWordLength;         // Минимальная длина слова в словаре
-    private char[] alphabet;           // буквы алфавита
-    private int[] frequency;           // частота букв в словаре (в каждой ячейке хранит частоту букв, а индекс - это позиция буквы в alphabet)
+    private int maxWordLength; // Максимальная длина слова в словаре
+    private int minWordLength; // Минимальная длина слова в словаре
+    private char[] alphabet; // буквы алфавита
+    private int[] frequency; // частота букв в словаре (в каждой ячейке хранит частоту букв, а индекс - это позиция буквы в alphabet)
     
 
     public DictionaryStatistic(String[] words, char[] alphabet) {
@@ -76,7 +76,7 @@ public class DictionaryStatistic {
 
     @Override
     public String toString() {
-        return "Dictionary Statistic:\n" +
+        return "Статистика из словарика:\n" +
                 "Общее количество слов: " + dictionarySize + "\n" +
                 "Количество палиндромов: " + palindrome + "\n" +
                 "Максимальная длина слова: " + maxWordLength + "\n" +

@@ -7,7 +7,7 @@ public class Cube extends Shape {
         this.a = side;
     }
 
-
+    @Override
     public double getVolume() {
         return Math.pow(a, 3);
     }

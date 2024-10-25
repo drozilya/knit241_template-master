@@ -9,10 +9,12 @@ import org.knit.lab3.Mage;
 import org.knit.lab3.Warrior;
 import org.knit.lab3.WarriorGuard;
 import org.knit.lab4.DictionaryStatistic;
+import org.knit.lab4.GameWords;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -166,7 +168,7 @@ public class Main {
 
         container.add(sphere);
         container.add(cube);
-         */
+        */
 
         /* Массивы и строки */
 
@@ -194,5 +196,15 @@ public class Main {
         System.out.println("Случайное слово из словаря: " + dictStat.getRandomWord());
 
         dictStat.printSymbolsStat();
+
+        Scanner scanner3 = new Scanner(System.in);
+        System.out.println("Введите слово: ");
+        char[] word = scanner3.nextLine().toCharArray();
+        GameWords gameWords = new GameWords(word);
+
+        System.out.println(word);
+        for (int i = 0; i < word.length; i++) {
+            System.out.println(word[i]);
+        }
     }
 }
