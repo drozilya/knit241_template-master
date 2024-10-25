@@ -35,7 +35,6 @@ public class Main {
         task7.execute();
 
         */
-        Task5 task5 = new Task5();
-        task5.execute();
+
     }
 }
