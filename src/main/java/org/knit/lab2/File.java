@@ -1,7 +1,7 @@
 package org.knit.lab2;
 
 public class File extends FileSystemComponent {
-    private int size;
+    private final int size;
 
     public File(String name, int size) {
         super(name);

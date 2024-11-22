@@ -6,7 +6,6 @@ public class GameWords {
 
     public GameWords(char[] word) {
         getWordStat(word);
-        
     }
 
     private void getWordStat(char[] wd) {

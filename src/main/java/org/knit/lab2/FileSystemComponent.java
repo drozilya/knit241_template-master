@@ -14,11 +14,11 @@ public abstract class FileSystemComponent {
     public abstract int getSize();
 
     public void add(FileSystemComponent component) {
-        throw new UnsupportedOperationException("Не получилось добавить компонент!");
+        throw new UnsupportedOperationException("⛔Не удалось добавить компонент!");
     }
 
     public void remove(FileSystemComponent component) {
-        throw new UnsupportedOperationException("Не получилось удалить компонент!");
+        throw new UnsupportedOperationException("⛔Не удалось удалить компонент!");
     }
 
     public abstract void display(String indent);

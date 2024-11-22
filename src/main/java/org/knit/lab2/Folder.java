@@ -1,10 +1,10 @@
 package org.knit.lab2;
-import java.util.ArrayList;
+
 import java.util.List;
+import java.util.ArrayList;
 
 public class Folder extends FileSystemComponent {
-    private List<FileSystemComponent> components = new ArrayList<>();
-
+    private final List<FileSystemComponent> components = new ArrayList<>();
 
     public Folder(String name) {
         super(name);
@@ -12,12 +12,20 @@ public class Folder extends FileSystemComponent {
 
     @Override
     public void add(FileSystemComponent component) {
-        components.add(component);
+        if (components.contains(component)) {
+            System.out.println("⛔Уже есть компонент с таким названием в папке!");
+        } else {
+            components.add(component);
+        }
     }
 
     @Override
     public void remove(FileSystemComponent component) {
-        components.remove(component);
+        if (components.contains(component)) {
+            components.remove(component);
+        } else {
+            System.out.println("⛔Такого компонента нет в данной папке!");
+        }
     }
 
     @Override
@@ -31,9 +39,9 @@ public class Folder extends FileSystemComponent {
 
     @Override
     public void display(String indent) {
-        System.out.println(indent + name);
+        System.out.println(indent + "\uD83D\uDCC2" + name);
         for (FileSystemComponent component : components) {
-            component.display(indent + "  ");
+            component.display(indent + "--");
         }
     }
 }
