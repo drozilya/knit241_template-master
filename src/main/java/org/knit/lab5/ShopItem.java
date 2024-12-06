@@ -4,40 +4,36 @@ import java.util.Objects;
 
 class ShopItem {
     private String name;
-    private double price;
-    private int quantity;
+    private int price;
+    private String group;
 
     // Конструктор
-    public ShopItem(String name, double price, int quantity) {
+    public ShopItem(String name, int price, String group) {
         this.name = name;
         this.price = price;
-        this.quantity = quantity;
+        this.group = group;
     }
 
-    // Переопределение метода toString
-    @Override
-    public String toString() {
-        return "ShopItem{name='" + name + "', price=" + price + ", quantity=" + quantity + '}';
-    }
-
-    // Переопределение метода equals
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ShopItem shopItem = (ShopItem) o;
         return Double.compare(shopItem.price, price) == 0 &&
-                quantity == shopItem.quantity &&
-                Objects.equals(name, shopItem.name);
+                Objects.equals(name, shopItem.name) &&
+                Objects.equals(group, shopItem.group);
     }
 
-    // Переопределение метода hashCode
+    @Override
+    public String toString() {
+        return "имя: '" + name + "', цена: " + price + ", количество: " + group;
+    }
+
     @Override
     public int hashCode() {
-        return Objects.hash(name, price, quantity);
+        return Objects.hash(name, price, group);
     }
 
-    // Геттеры (для сортировки)
     public String getName() {
         return name;
     }
@@ -46,7 +42,7 @@ class ShopItem {
         return price;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public String getGroup() {
+        return group;
     }
 }

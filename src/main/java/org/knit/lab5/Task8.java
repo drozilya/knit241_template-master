@@ -4,40 +4,51 @@ import java.util.Random;
 
 public class Task8 {
     public static void execute() {
-        // Массив названий
-        String[] names = {"книга", "ручка", "линейка", "пинал"};
+        String[] names = {"книга", "ручка", "линейка", "пенал"};
 
-        // Создание массива объектов ShopItem
         Random random = new Random();
         ShopItem[] items = new ShopItem[100];
 
         for (int i = 0; i < items.length; i++) {
             String name = names[random.nextInt(names.length)];
-            double price = 10 + random.nextDouble() * 90; // Случайная цена от 10 до 100
-            int quantity = random.nextInt(50) + 1;       // Количество от 1 до 50
-            items[i] = new ShopItem(name, price, quantity);
+            int price = random.nextInt(500 - 10) + 10;
+            String group = name.equals("книга") ? "литература" : name.equals("ручка") || name.equals("линейка") ? "канцелярия" : "прочее";
+            items[i] = new ShopItem(name, price, group);
         }
 
-        // Вывод оригинального списка
         System.out.println("Оригинальный список:");
-        Arrays.stream(items).forEach(System.out::println);
+        for (var i : items) {
+            System.out.println(i);
+        }
 
-        // Сортировка по имени (с использованием Comparator)
         Arrays.sort(items, Comparator.comparing(ShopItem::getName));
         System.out.println("\nСписок после сортировки по имени:");
-        Arrays.stream(items).forEach(System.out::println);
+        for (var i : items) {
+            System.out.println(i);
+        }
 
-        // Подсчёт одинаковых элементов
         Map<ShopItem, Integer> itemCount = new HashMap<>();
         for (ShopItem item : items) {
-            itemCount.put(item, itemCount.getOrDefault(item, 0) + 1);
+            if (itemCount.containsKey(item)) {
+                itemCount.put(item, itemCount.get(item) + 1);
+            } else {
+                itemCount.put(item, 1);
+            }
         }
 
         System.out.println("\nКоличество одинаковых ShopItem:");
-        itemCount.forEach((key, value) -> {
-            if (value > 1) {
-                System.out.println(key + " - " + value + " шт.");
+        for (Map.Entry<ShopItem, Integer> entry : itemCount.entrySet()) {
+            if (entry.getValue() > 1) {
+                System.out.println(entry.getKey() + " - " + entry.getValue() + " шт.");
             }
-        });
+        }
+
+
+        ShopItem item1 = new ShopItem("книга", 100, "литература");
+        ShopItem item2 = new ShopItem("книга", 100, "литература");
+        ShopItem item3 = new ShopItem("ручка", 20, "канцелярия");
+        System.out.println("item1.equals(item2): " + item1.equals(item2));
+
+        System.out.println("item1.hashCode(): " + item1.hashCode());
     }
 }
