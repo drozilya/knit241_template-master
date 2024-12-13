@@ -49,11 +49,8 @@ public class Task11 {
                     System.out.println("=====================================\n");
                     break;
                 case 4:
-                    System.out.print("✏Введите И студента для поиска: ");
-                    String ntf = sw_scanner.nextLine().split(" ")[1];
-                    for (String i : students) {
-                        if (i.split()[1])
-                    }
+                    System.out.print("✏Введите ФИ студента для поиска: ");
+                    String ntf = sw_scanner.nextLine();
                     if (!students.contains(ntf)) {
                         System.out.println("\n❌Не найдено такого студента!\n");
                     } else {
