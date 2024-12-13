@@ -11,7 +11,7 @@ public class Task8 {
 
         for (int i = 0; i < items.length; i++) {
             String name = names[random.nextInt(names.length)];
-            int price = random.nextInt(500 - 10) + 10;
+            int price = random.nextInt(490) + 10;
             String group = name.equals("книга") ? "литература" : name.equals("ручка") || name.equals("линейка") ? "канцелярия" : "прочее";
             items[i] = new ShopItem(name, price, group);
         }
@@ -21,7 +21,7 @@ public class Task8 {
             System.out.println(i);
         }
 
-        Arrays.sort(items, Comparator.comparing(ShopItem::getName));
+        Arrays.sort(items, Comparator.comparing(ShopItem::getName).thenComparing(ShopItem::getPrice));
         System.out.println("\nСписок после сортировки по имени:");
         for (var i : items) {
             System.out.println(i);

@@ -8,6 +8,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Task9 {
+    static final int END_TIME = 20_000;
 
     public static void execute() throws IOException {
         // Получение списка слов из файла
@@ -27,8 +28,9 @@ public class Task9 {
         int correctWords = 0;
         int totalCharacters = 0;
 
+
         long startTime = System.currentTimeMillis();
-        long endTime = startTime + 60_000;
+        long endTime = startTime + END_TIME;
 
         while (System.currentTimeMillis() < endTime) {
             String randomWord = words.get(random.nextInt(words.size()));

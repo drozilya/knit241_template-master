@@ -4,9 +4,10 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 public class Task10 {
+    static final int WL = 4;
     public static void execute() {
 
-        List<String> dictionary = loadWords("data/dictionary.txt", 4);
+        List<String> dictionary = loadWords("data/dictionary.txt", WL);
 
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
@@ -17,7 +18,7 @@ public class Task10 {
 
         do {
             String word = dictionary.get(random.nextInt(dictionary.size()));
-
+            System.out.println(word);
             List<Character> currentWord = new ArrayList<>();
             for (int i = 0; i < word.length(); i++) {
                 currentWord.add('_');
